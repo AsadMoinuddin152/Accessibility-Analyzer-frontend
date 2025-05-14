@@ -215,29 +215,15 @@ Here are the available scripts to run and build the frontend:
 
 ```mermaid
 graph TD
-  A[Landing Page] -->|"Scan Now" (CTA)| B(URL Input Modal)
-  A -->|"Sign Up"| C[Auth: 2-Step Signup]
-  A -->|"Login"| D[Auth: Email/Password]
-  A -->|"Try Demo"| E[Demo Report View]
-
-  B -->|Guest Mode| F[Dashboard]
-  C -->|Completed Form| F
-  D -->|Success| F
-
-  F -->|"New Scan"| G[URL Input]
-  G -->|Submit| H[Scan Progress Screen]
-  H -->|Results Ready| I[Report View]
-
-  I -->|"Save to Project"| J[Project History]
-  I -->|"Export"| K[Export Menu: PDF/CSV/JSON]
-  I -->|"Rescan"| G
-
-  J -->|Click History Item| I
-  K -->|Slack/GitHub| L[Integration Settings]
-
-  F -->|Left Nav| M[Settings]
-  M --> N[Notification Prefs]
-  M --> O[WCAG Version Toggle]
+  A[Landing Page] -->|Scan Now| B(URL Input Modal)
+  A -->|Sign Up| C[Auth: Signup Flow]
+  A -->|Login| D[Auth: Login]
+  B -->|Guest Mode| E[Dashboard]
+  C --> E
+  D --> E
+  E -->|New Scan| F[Report View]
+  F -->|Save| G[Project History]
+  F -->|Export| H[Share Modal]
 ```
 
 ## Key Features
