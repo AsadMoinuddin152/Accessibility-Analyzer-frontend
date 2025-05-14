@@ -230,3 +230,70 @@ Here are the available scripts to run and build the frontend:
 3. **Project Management**
    - Save scans to projects
    - Track accessibility improvements over time
+
+Page Features & Implementation
+
+## 1. Landing Page
+
+**Goal:** Convert visitors in 10 seconds
+
+| Feature         | Implementation Strategy                     |
+| --------------- | ------------------------------------------- |
+| URL Input Field | Use MUI TextField with URL validation regex |
+
+## 2. Auth Pages
+
+**Goal:** Minimize signup friction
+
+| Feature        | Implementation Strategy                                |
+| -------------- | ------------------------------------------------------ |
+| 2-Step Signup  | Form wizard pattern with session storage between steps |
+| Password Meter | Zxcvbn library integration for strength analysis       |
+| SSO Options    | Firebase Auth or Auth0 social login integration        |
+| Guest Mode     | LocalStorage for temporary session data                |
+
+## 3. Dashboard
+
+**Goal:** Centralized scan management
+
+| Feature        | Implementation Strategy                                     |
+| -------------- | ----------------------------------------------------------- |
+| Project List   | Virtualized list for performance with expandable cards      |
+| Scan Summary   | Radial progress chart for accessibility score visualization |
+| Violation Tabs | WCAG-categorized tabs with expandable violation cards       |
+| Quick Filters  | Redux-managed filter state with debounced updates           |
+
+## 4. Report Page
+
+**Goal:** Actionable insights
+
+| Feature          | Implementation Strategy                                |
+| ---------------- | ------------------------------------------------------ |
+| Visual Overlay   | HTML2Canvas for screenshot with SVG violation markers  |
+| Code Inspector   | Monaco Editor for syntax-highlighted code snippets     |
+| Fix Demos        | Lottie animations for complex interaction guidance     |
+| Timeline Compare | Overlaid Chart.js graphs for historical trend analysis |
+
+## 5. Settings
+
+**Goal:** Personalized configuration
+
+| Feature            | Implementation Strategy                              |
+| ------------------ | ---------------------------------------------------- |
+| WCAG Presets       | Dropdown with version-specific rule sets             |
+| Integration Setup  | OAuth flows with platform-specific API wrappers      |
+| Notification Prefs | Toggle switches grouped by notification type         |
+| Avatar Upload      | Cloudinary widget with auto-cropping and compression |
+
+---
+
+## Implementation Flow
+
+```mermaid
+graph LR
+  A[Landing Page] -->|Convert| B[Auth]
+  B -->|Authenticate| C[Dashboard]
+  C -->|Scan| D[Report]
+  D -->|Save| C
+  C -->|Configure| E[Settings]
+```
