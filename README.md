@@ -213,7 +213,32 @@ Here are the available scripts to run and build the frontend:
 
 ## User Flow Diagram
 
-![Accessibility Analyzer User Flow](./src/assets/flow%20Chart.png)
+```mermaid
+graph TD
+  A[Landing Page] -->|"Scan Now" (CTA)| B(URL Input Modal)
+  A -->|"Sign Up"| C[Auth: 2-Step Signup]
+  A -->|"Login"| D[Auth: Email/Password]
+  A -->|"Try Demo"| E[Demo Report View]
+
+  B -->|Guest Mode| F[Dashboard]
+  C -->|Completed Form| F
+  D -->|Success| F
+
+  F -->|"New Scan"| G[URL Input]
+  G -->|Submit| H[Scan Progress Screen]
+  H -->|Results Ready| I[Report View]
+
+  I -->|"Save to Project"| J[Project History]
+  I -->|"Export"| K[Export Menu: PDF/CSV/JSON]
+  I -->|"Rescan"| G
+
+  J -->|Click History Item| I
+  K -->|Slack/GitHub| L[Integration Settings]
+
+  F -->|Left Nav| M[Settings]
+  M --> N[Notification Prefs]
+  M --> O[WCAG Version Toggle]
+```
 
 ## Key Features
 
