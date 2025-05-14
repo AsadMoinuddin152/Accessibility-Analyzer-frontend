@@ -210,3 +210,23 @@ Here are the available scripts to run and build the frontend:
 - **`lint`**: Runs ESLint on the project to check for code issues.
 - **`preview`**: Previews the production build.
 - **`test`**: Runs Jest tests to ensure the frontend works as expected.
+
+## User Flow Diagram
+
+![Accessibility Analyzer User Flow](./src/assets/flow%20Chart.png)
+
+## Key Features
+
+1. **One-Click Scanning**
+
+   - Paste any URL for instant WCAG analysis
+   - Real-time progress tracking
+
+2. **Interactive Reports**
+
+   - Filter violations by severity (Critical/Warning/Info)
+   - Side-by-side "Before/After" fix previews
+
+3. **Project Management**
+   - Save scans to projects
+   - Track accessibility improvements over time
