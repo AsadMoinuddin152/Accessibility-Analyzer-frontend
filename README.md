@@ -308,3 +308,34 @@ graph LR
   D -->|Save| C
   C -->|Configure| E[Settings]
 ```
+
+## ✅ Today's Progress (📅 15th May 2025)
+
+### 🧑‍💻 Frontend Architecture & Routing
+
+- ✅ React Router set up with the following pages:
+  - `/` → Landing Page
+  - `/auth` → Login/Signup Page
+  - `/dashboard` → User Dashboard (protected)
+  - `/report/:scanId` → Scan Report Viewer
+  - `/settings` → User Preferences
+- ✅ Protected route implemented using Redux state + session validation logic:
+  - Redirects to `/auth` if token is missing, expired, or user is not authenticated
+  - Shows notification modal before redirecting
+
+### 🔐 Authentication & Redux State
+
+- ✅ Created Redux slice `authSlice` with:
+  - `token`, `user`, `isAuthenticated`, `isGuest`, and `lastLogin` fields
+  - `loginSuccess`, `logout`, and `guestLogin` actions
+- ✅ Integrated Redux Persist to store state in `localStorage`
+
+### 🎨 Auth Pages & UI Components
+
+- ✅ Built dynamic Auth Page:
+  - Toggles between Login and Signup
+  - Integrated password validation, instructions, and form control
+  - Signup includes password strength feedback and T&C checkbox
+- ✅ Created reusable Notification Modal:
+  - Auto-close feature with progress bar animation
+  - Used for alerts like session expiration and auth redirects
