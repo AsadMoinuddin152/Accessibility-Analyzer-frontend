@@ -5,7 +5,6 @@ const initialState = {
     id: null,
     name: "",
     email: "",
-    phone: "",
     lastLogin: null,
   },
   isAuthenticated: false,
@@ -18,7 +17,10 @@ const authSlice = createSlice({
   reducers: {
     loginSuccess: (state, action) => {
       state.token = action.payload.token;
-      state.user = action.payload.user;
+      state.user = {
+        ...action.payload.user,
+        lastLogin: new Date().toISOString(),
+      };
       state.isAuthenticated = true;
     },
     guestLogin: (state) => {

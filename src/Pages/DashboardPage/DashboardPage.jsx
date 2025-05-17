@@ -1,10 +1,33 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../redux/authSlice";
 
 const DashboardPage = () => {
-  const user = useSelector((state) => state.auth.user);
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  return <div>Welcome, {user?.name || "Guest"}! Dashbaord</div>;
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/auth");
+  };
+
+  const user = auth.user;
+
+  return (
+    <div>
+      <h2>Welcome, {user?.name || "Guest"}! Dashboard</h2>
+      {auth.isAuthenticated && (
+        <button
+          onClick={handleLogout}
+          style={{ padding: "8px 16px", marginTop: "1rem" }}
+        >
+          Logout
+        </button>
+      )}
+    </div>
+  );
 };
 
 export default DashboardPage;
